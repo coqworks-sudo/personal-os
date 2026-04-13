@@ -27,8 +27,12 @@ class Handler(BaseHTTPRequestHandler):
             body = self.rfile.read(length)
             data = json.loads(body) if body else {}
 
-            messages_file = data.get('messagesFile', '/tmp/personal-os-messages.txt')
+            messages = data.get('messages', '')
             date = data.get('date', '')
+            messages_file = '/tmp/personal-os-messages.txt'
+
+            with open(messages_file, 'w', encoding='utf-8') as f:
+                f.write(messages)
 
             logging.info(f'routine.sh 開始: date={date}, file={messages_file}')
 
