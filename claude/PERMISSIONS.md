@@ -19,16 +19,16 @@ _設定ファイル：`~/.claude/settings.json`_
 
 | カテゴリ | 許可パターン | 用途 |
 |---|---|---|
-| git | `git *` | リポジトリ操作 |
-| SSH | `ssh *` / `ssh-keygen *` | GitHub接続確認・鍵生成 |
-| n8n | `n8n *` / `npx n8n*` | 起動・デーモン化 |
-| launchctl | `launchctl *` | macOSデーモン登録 |
+| git | `git*` | リポジトリ操作 |
+| SSH | `ssh*` / `ssh-keygen*` | GitHub接続確認・鍵生成 |
+| n8n | `n8n*` / `npx n8n*` | 起動・デーモン化 |
+| launchctl | `launchctl*` | macOSデーモン登録 |
 | curl | `curl https://slack.com/api/*` | Slack API疎通確認（Slack APIのみ） |
 | npm | `npm install -g *` | グローバルパッケージ管理 |
 | brew | `brew install *` | ツール追加 |
-| ファイル操作 | `find` / `ls` / `mkdir` / `touch` / `chmod` | 環境確認・構造作成 |
+| ファイル操作 | `find*` / `ls*` / `mkdir*` / `touch*` / `chmod*` | 環境確認・構造作成 |
 | SSH設定確認 | `cat ~/.ssh/*` | 鍵ファイル確認 |
-| パス確認 | `which *` | コマンド存在確認 |
+| パス確認 | `which*` | コマンド存在確認 |
 
 ### ファイル操作
 
