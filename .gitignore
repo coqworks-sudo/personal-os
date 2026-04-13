@@ -2,3 +2,5 @@
 *.env
 .env.*
 node_modules/
+n8n.log
+n8n-error.log
