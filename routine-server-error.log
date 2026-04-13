@@ -256,3 +256,6 @@
 2026-04-14 01:18:11,560 INFO routine-server 起動: http://localhost:5680
 2026-04-14 01:19:04,543 INFO routine-server 起動: http://localhost:5680
 2026-04-14 01:22:55,601 INFO routine.sh 開始: date=2026-04-13, file=/tmp/personal-os-messages.txt
+2026-04-14 01:23:43,454 INFO routine.sh 終了: returncode=0
+2026-04-14 01:43:18,274 INFO routine-server 起動: http://localhost:5680
+2026-04-14 01:44:04,165 INFO routine.sh 開始: date=2026-04-13, file=/tmp/personal-os-messages.txt

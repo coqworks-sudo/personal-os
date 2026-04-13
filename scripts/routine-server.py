@@ -37,7 +37,7 @@ class Handler(BaseHTTPRequestHandler):
             logging.info(f'routine.sh 開始: date={date}, file={messages_file}')
 
             result = subprocess.run(
-                ['/bin/bash', ROUTINE_SH, messages_file, date],
+                ['/usr/bin/caffeinate', '-i', '/bin/bash', ROUTINE_SH, messages_file, date],
                 capture_output=True,
                 text=True,
                 timeout=600
