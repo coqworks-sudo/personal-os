@@ -4,3 +4,73 @@
 2026-04-14 00:51:08,230 INFO routine.sh 終了: returncode=127
 2026-04-14 00:52:22,072 INFO routine-server 起動: http://localhost:5680
 2026-04-14 00:52:50,782 INFO routine.sh 開始: date=2026-04-14, file=/tmp/test.txt
+2026-04-14 00:53:42,116 INFO routine.sh 終了: returncode=0
+2026-04-14 01:01:52,992 INFO routine.sh 開始: date=, file=
+2026-04-14 01:01:53,057 INFO routine.sh 終了: returncode=1
+2026-04-14 01:01:53,060 INFO routine.sh 開始: date=, file=
+2026-04-14 01:01:53,068 INFO routine.sh 終了: returncode=1
+2026-04-14 01:01:53,069 INFO routine.sh 開始: date=, file=
+2026-04-14 01:01:53,076 INFO routine.sh 終了: returncode=1
+2026-04-14 01:01:53,077 INFO routine.sh 開始: date=, file=
+2026-04-14 01:01:53,081 INFO routine.sh 終了: returncode=1
+2026-04-14 01:01:53,082 INFO routine.sh 開始: date=, file=
+2026-04-14 01:01:53,088 INFO routine.sh 終了: returncode=1
+2026-04-14 01:01:53,088 INFO routine.sh 開始: date=, file=
+2026-04-14 01:01:53,092 INFO routine.sh 終了: returncode=1
+2026-04-14 01:01:53,264 INFO routine.sh 開始: date=, file=
+2026-04-14 01:01:53,274 INFO routine.sh 終了: returncode=1
+2026-04-14 01:01:53,275 INFO routine.sh 開始: date=, file=
+2026-04-14 01:01:53,283 INFO routine.sh 終了: returncode=1
+2026-04-14 01:01:53,284 INFO routine.sh 開始: date=, file=
+2026-04-14 01:01:53,296 INFO routine.sh 終了: returncode=1
+2026-04-14 01:01:53,298 INFO routine.sh 開始: date=, file=
+2026-04-14 01:01:53,306 INFO routine.sh 終了: returncode=1
+2026-04-14 01:01:53,307 INFO routine.sh 開始: date=, file=
+2026-04-14 01:01:53,312 INFO routine.sh 終了: returncode=1
+2026-04-14 01:01:53,312 INFO routine.sh 開始: date=, file=
+2026-04-14 01:01:53,319 INFO routine.sh 終了: returncode=1
+2026-04-14 01:01:53,320 INFO routine.sh 開始: date=, file=
+2026-04-14 01:01:53,326 INFO routine.sh 終了: returncode=1
+2026-04-14 01:01:53,326 INFO routine.sh 開始: date=, file=
+2026-04-14 01:01:53,331 INFO routine.sh 終了: returncode=1
+2026-04-14 01:01:53,775 INFO routine.sh 開始: date=, file=
+2026-04-14 01:01:53,782 INFO routine.sh 終了: returncode=1
+2026-04-14 01:01:53,783 INFO routine.sh 開始: date=, file=
+2026-04-14 01:01:53,793 INFO routine.sh 終了: returncode=1
+2026-04-14 01:01:53,794 INFO routine.sh 開始: date=, file=
+2026-04-14 01:01:53,800 INFO routine.sh 終了: returncode=1
+2026-04-14 01:01:53,800 INFO routine.sh 開始: date=, file=
+2026-04-14 01:01:53,808 INFO routine.sh 終了: returncode=1
+2026-04-14 01:01:53,808 INFO routine.sh 開始: date=, file=
+2026-04-14 01:01:53,812 INFO routine.sh 終了: returncode=1
+2026-04-14 01:01:54,735 INFO routine.sh 開始: date=, file=
+2026-04-14 01:01:54,745 INFO routine.sh 終了: returncode=1
+2026-04-14 01:01:54,746 INFO routine.sh 開始: date=, file=
+2026-04-14 01:01:54,755 INFO routine.sh 終了: returncode=1
+2026-04-14 01:01:54,759 INFO routine.sh 開始: date=, file=
+2026-04-14 01:01:54,764 INFO routine.sh 終了: returncode=1
+2026-04-14 01:01:54,765 INFO routine.sh 開始: date=, file=
+2026-04-14 01:01:54,771 INFO routine.sh 終了: returncode=1
+2026-04-14 01:01:54,772 INFO routine.sh 開始: date=, file=
+2026-04-14 01:01:54,777 INFO routine.sh 終了: returncode=1
+2026-04-14 01:01:56,658 INFO routine.sh 開始: date=, file=
+2026-04-14 01:01:56,665 INFO routine.sh 終了: returncode=1
+2026-04-14 01:01:56,666 INFO routine.sh 開始: date=, file=
+2026-04-14 01:01:56,676 INFO routine.sh 終了: returncode=1
+2026-04-14 01:01:56,677 INFO routine.sh 開始: date=, file=
+2026-04-14 01:01:56,682 INFO routine.sh 終了: returncode=1
+2026-04-14 01:01:56,683 INFO routine.sh 開始: date=, file=
+2026-04-14 01:01:56,690 INFO routine.sh 終了: returncode=1
+2026-04-14 01:01:56,691 INFO routine.sh 開始: date=, file=
+2026-04-14 01:01:56,696 INFO routine.sh 終了: returncode=1
+2026-04-14 01:01:58,578 INFO routine.sh 開始: date=, file=
+2026-04-14 01:01:58,589 INFO routine.sh 終了: returncode=1
+2026-04-14 01:01:58,590 INFO routine.sh 開始: date=, file=
+2026-04-14 01:01:58,597 INFO routine.sh 終了: returncode=1
+2026-04-14 01:01:58,598 INFO routine.sh 開始: date=, file=
+2026-04-14 01:01:58,610 INFO routine.sh 終了: returncode=1
+2026-04-14 01:01:58,611 INFO routine.sh 開始: date=, file=
+2026-04-14 01:01:58,614 INFO routine.sh 終了: returncode=1
+2026-04-14 01:01:58,615 INFO routine.sh 開始: date=, file=
+2026-04-14 01:01:58,619 INFO routine.sh 終了: returncode=1
+2026-04-14 01:02:26,197 INFO routine.sh 開始: date=2026-04-14, file=/tmp/test.txt
