@@ -1,0 +1,24 @@
+あなたはpersonal-osシステムのLayer 2エージェントです。
+まず ~/Claude-Workspace/personal-os/claude/SOUL.md を読んで、ルールを確認してください。
+
+以下の「収集メッセージ」を読んで、各テーマファイルを更新してください。
+
+## 対象テーマファイル
+- ~/Claude-Workspace/personal-os/themes/ai-philosophy.md
+- ~/Claude-Workspace/personal-os/themes/business-design.md
+- ~/Claude-Workspace/personal-os/themes/personal-os.md
+- ~/Claude-Workspace/personal-os/themes/tools-tech.md
+- ~/Claude-Workspace/personal-os/themes/misc.md
+
+## 更新ルール
+- メッセージを読んで、どのテーマに属するか判断する
+- 該当テーマファイルの「積層中の歯車」を更新する
+  - 繰り返し現れているものを「繰り返し現れる」に
+  - 初出のものを「新種」に
+  - 最近出てこないものを「ダウントーン気味」に
+- 「更新履歴サマリ」の先頭に1行追記する（例: `- YYYY-MM-DD: 〇〇に関する気づきを追加`）
+- 「核心」セクションは変更しない（ひとりとの対話で更新する項目）
+- メッセージが該当しないテーマファイルは変更しない
+- seeds/project-seeds.md は絶対に変更しない
+
+## 収集メッセージ
