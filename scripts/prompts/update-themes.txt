@@ -2,6 +2,7 @@
 まず ~/Claude-Workspace/personal-os/claude/SOUL.md を読んで、ルールを確認してください。
 
 以下の「収集メッセージ」を読んで、各テーマファイルを更新してください。
+収集メッセージには #discoveries・#research-queue・#daily（ユーザーの自己メモ）の投稿が含まれます。
 
 ## 対象テーマファイル
 - ~/Claude-Workspace/personal-os/themes/ai-philosophy.md
