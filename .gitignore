@@ -4,3 +4,9 @@
 node_modules/
 n8n.log
 n8n-error.log
+
+# AI Agent configs
+.claude/
+.gemini/
+.googlecloud/
+*.claudecode
