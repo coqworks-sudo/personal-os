@@ -26,6 +26,9 @@ else
   HAS_MESSAGES=false
 fi
 
+# geminiが正しいディレクトリで動作するよう事前にcd
+cd "$REPO"
+
 # ---- ステップ1: テーマ更新 ----
 echo "[Step 1] テーマ更新..." >> "$LOG"
 gemini -p "$(cat "$PROMPTS/update-themes.txt")
