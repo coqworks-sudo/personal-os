@@ -11,7 +11,7 @@
 set -euo pipefail
 
 REPO="$HOME/Claude-Workspace/personal-os"
-LOCAL_DIR="$REPO/research/fragments"
+LOCAL_DIR="$HOME/Claude-Workspace/research/fragments"
 REMOTE_DIR="gdrive:personal-os/fragments"
 
 DRY_RUN=""

@@ -11,8 +11,8 @@ export GEMINI_CLI_TRUST_WORKSPACE=true
 MESSAGES_FILE="${1:?メッセージファイルのパスを指定してください}"
 DATE="${2:-$(date +%Y-%m-%d)}"
 REPO="$HOME/Claude-Workspace/personal-os"
-FRAGMENTS_DIR="$REPO/research/fragments"
-QUEUE_DIR="$REPO/research/queue"
+FRAGMENTS_DIR="$HOME/Claude-Workspace/research/fragments"
+QUEUE_DIR="$HOME/Claude-Workspace/research/queue"
 LOG="$REPO/routine-detail.log"
 
 echo "" >> "$LOG"
