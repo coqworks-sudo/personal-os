@@ -4,6 +4,8 @@
 node_modules/
 n8n.log
 n8n-error.log
+routine-detail.log
+routine-server-error.log
 
 # AI Agent configs
 .claude/
