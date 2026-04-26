@@ -13,12 +13,11 @@ DATE="${2:-$(date +%Y-%m-%d)}"
 REPO="$HOME/Claude-Workspace/personal-os"
 PROMPTS="$REPO/scripts/prompts"
 LOG="$REPO/routine-detail.log"
+LOG_FILE="$REPO/todo/log/$DATE.md"
 
-# ログファイルに区切りを追加
 echo "" >> "$LOG"
 echo "===== $DATE $(date '+%H:%M') =====" >> "$LOG"
 
-# メッセージの有無を判定
 MESSAGES=$(cat "$MESSAGES_FILE" 2>/dev/null || echo "")
 if echo "$MESSAGES" | grep -q "^\["; then
   HAS_MESSAGES=true
@@ -26,20 +25,70 @@ else
   HAS_MESSAGES=false
 fi
 
-# geminiが正しいディレクトリで動作するよう事前にcd
 cd "$REPO"
+
+# テーマファイルを連結して返す
+read_themes() {
+  for theme in ai-philosophy business-design personal-os tools-tech misc; do
+    echo "=== themes/${theme}.md ==="
+    cat "$REPO/themes/${theme}.md"
+    echo ""
+  done
+}
+
+# <<<FILE:name>>>...<<<ENDFILE>>> 形式を解析してファイルを書き出す
+# context: "themes" | "synthesis" | "log"
+parse_and_write() {
+  local output="$1"
+  local context="$2"
+  echo "$output" | \
+    REPO="$REPO" LOG_FILE="$LOG_FILE" CONTEXT="$context" python3 -c "
+import sys, re, os
+
+content = sys.stdin.read()
+repo = os.environ['REPO']
+log_file = os.environ['LOG_FILE']
+ctx = os.environ['CONTEXT']
+
+for fname, body in re.findall(r'<<<FILE:([^>]+)>>>\n(.*?)<<<ENDFILE>>>', content, re.DOTALL):
+    body = body.rstrip('\n') + '\n'
+    if fname == 'log':
+        fpath = log_file
+        os.makedirs(os.path.dirname(fpath), exist_ok=True)
+    elif fname == 'weekly':
+        fpath = os.path.join(repo, 'todo', 'weekly.md')
+    elif ctx == 'synthesis':
+        fpath = os.path.join(repo, 'synthesis', fname)
+    else:
+        fpath = os.path.join(repo, 'themes', fname)
+    with open(fpath, 'w') as f:
+        f.write(body)
+    print('written: ' + fname, flush=True)
+" 2>>"$LOG"
+}
 
 # ---- ステップ1: テーマ更新 ----
 echo "[Step 1] テーマ更新..." >> "$LOG"
-gemini -p "$(cat "$PROMPTS/update-themes.txt")
 
+THEMES_CONTENT=$(read_themes)
+SOUL_CONTENT=$(cat "$REPO/claude/SOUL.md")
+
+STEP1_OUTPUT=$(gemini -p "$(cat "$PROMPTS/update-themes.txt")
+
+## エージェントの姿勢と価値観（SOUL）
+$SOUL_CONTENT
+
+## 現在のテーマファイル
+$THEMES_CONTENT
+
+## 収集メッセージ
 $MESSAGES" \
-  --output-format text \
-  --yolo >> "$LOG" 2>&1
+  --output-format text --approval-mode plan 2>>"$LOG")
 
-# 変更されたテーマファイルを検出
-cd "$REPO"
-THEME_CHANGES=$(git diff --name-only themes/ | sed 's|themes/||g' | sed 's|\.md||g' | tr '\n' ' ' | xargs)
+echo "$STEP1_OUTPUT" >> "$LOG"
+parse_and_write "$STEP1_OUTPUT" "themes"
+
+THEME_CHANGES=$(git diff --name-only themes/ | sed 's|themes/||g' | sed 's|\.md||g' | tr '\n' ' ' | xargs 2>/dev/null || true)
 if [ -z "$THEME_CHANGES" ]; then
   STEP1="変更なし"
 else
@@ -49,29 +98,46 @@ echo "[Step 1] 完了: $STEP1" >> "$LOG"
 
 # ---- ステップ2: synthesis更新 ----
 echo "[Step 2] synthesis更新..." >> "$LOG"
-gemini -p "$(cat "$PROMPTS/update-synthesis.txt")" \
-  --output-format text \
-  --yolo >> "$LOG" 2>&1
+
+THEMES_CONTENT=$(read_themes)
+SYNTHESIS_CONTENT=$(cat "$REPO/synthesis/synthesis.md")
+
+STEP2_OUTPUT=$(gemini -p "$(cat "$PROMPTS/update-synthesis.txt")
+
+## 現在のテーマファイル
+$THEMES_CONTENT
+
+## 現在のsynthesis.md
+$SYNTHESIS_CONTENT" \
+  --output-format text --approval-mode plan 2>>"$LOG")
+
+echo "$STEP2_OUTPUT" >> "$LOG"
+parse_and_write "$STEP2_OUTPUT" "synthesis"
 
 SYNTH_CHANGED=$(git diff --name-only synthesis/)
-if [ -z "$SYNTH_CHANGED" ]; then
-  STEP2="変更なし"
-else
-  STEP2="更新"
-fi
+if [ -n "$SYNTH_CHANGED" ]; then STEP2="更新"; else STEP2="変更なし"; fi
 echo "[Step 2] 完了: $STEP2" >> "$LOG"
 
 # ---- ステップ3: 活動ログ生成・weekly更新 ----
 echo "[Step 3] 活動ログ生成..." >> "$LOG"
-gemini -p "$(cat "$PROMPTS/generate-log.txt" | sed "s|{DATE}|$DATE|g")
 
+WEEKLY_CONTENT=$(cat "$REPO/todo/weekly.md")
+
+STEP3_OUTPUT=$(gemini -p "$(cat "$PROMPTS/generate-log.txt" | sed "s|{DATE}|$DATE|g")
+
+## 現在のweekly.md
+$WEEKLY_CONTENT
+
+## 対象日付
 $DATE
 
+## 収集メッセージ
 $MESSAGES" \
-  --output-format text \
-  --yolo >> "$LOG" 2>&1
+  --output-format text --approval-mode plan 2>>"$LOG")
 
-LOG_FILE="$REPO/todo/log/$DATE.md"
+echo "$STEP3_OUTPUT" >> "$LOG"
+parse_and_write "$STEP3_OUTPUT" "log"
+
 WEEKLY_CHANGED=$(git diff --name-only todo/weekly.md)
 if [ -f "$LOG_FILE" ]; then
   if [ -n "$WEEKLY_CHANGED" ]; then

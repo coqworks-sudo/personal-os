@@ -327,3 +327,4 @@ Traceback (most recent call last):
 BrokenPipeError: [Errno 32] Broken pipe
 ----------------------------------------
 2026-04-26 17:27:39,421 INFO routine.sh 開始: date=2026-04-26, file=/tmp/personal-os-messages.txt
+2026-04-26 17:30:48,299 INFO routine.sh 終了: returncode=0
