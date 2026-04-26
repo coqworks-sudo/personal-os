@@ -6,6 +6,8 @@
 
 set -euo pipefail
 
+export GEMINI_CLI_TRUST_WORKSPACE=true
+
 MESSAGES_FILE="${1:?メッセージファイルのパスを指定してください}"
 DATE="${2:-$(date +%Y-%m-%d)}"
 REPO="$HOME/Claude-Workspace/personal-os"
@@ -26,11 +28,11 @@ fi
 
 # ---- ステップ1: テーマ更新 ----
 echo "[Step 1] テーマ更新..." >> "$LOG"
-claude -p "$(cat "$PROMPTS/update-themes.txt")
+gemini -p "$(cat "$PROMPTS/update-themes.txt")
 
 $MESSAGES" \
-  --allowedTools "Read,Edit,Glob,Grep" \
-  --output-format text >> "$LOG" 2>&1
+  --output-format text \
+  --yolo >> "$LOG" 2>&1
 
 # 変更されたテーマファイルを検出
 cd "$REPO"
@@ -44,9 +46,9 @@ echo "[Step 1] 完了: $STEP1" >> "$LOG"
 
 # ---- ステップ2: synthesis更新 ----
 echo "[Step 2] synthesis更新..." >> "$LOG"
-claude -p "$(cat "$PROMPTS/update-synthesis.txt")" \
-  --allowedTools "Read,Edit,Glob,Grep" \
-  --output-format text >> "$LOG" 2>&1
+gemini -p "$(cat "$PROMPTS/update-synthesis.txt")" \
+  --output-format text \
+  --yolo >> "$LOG" 2>&1
 
 SYNTH_CHANGED=$(git diff --name-only synthesis/)
 if [ -z "$SYNTH_CHANGED" ]; then
@@ -58,13 +60,13 @@ echo "[Step 2] 完了: $STEP2" >> "$LOG"
 
 # ---- ステップ3: 活動ログ生成・weekly更新 ----
 echo "[Step 3] 活動ログ生成..." >> "$LOG"
-claude -p "$(cat "$PROMPTS/generate-log.txt" | sed "s|{DATE}|$DATE|g")
+gemini -p "$(cat "$PROMPTS/generate-log.txt" | sed "s|{DATE}|$DATE|g")
 
 $DATE
 
 $MESSAGES" \
-  --allowedTools "Read,Write,Edit,Glob" \
-  --output-format text >> "$LOG" 2>&1
+  --output-format text \
+  --yolo >> "$LOG" 2>&1
 
 LOG_FILE="$REPO/todo/log/$DATE.md"
 WEEKLY_CHANGED=$(git diff --name-only todo/weekly.md)
