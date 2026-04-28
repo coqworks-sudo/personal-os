@@ -32,13 +32,13 @@ n8nのワークフローが毎朝スケジュール実行され、personal-os-bo
 ### Step 1: テーマ更新
 `#discoveries`・`#research-queue`・`#daily`（ユーザー投稿のみ）の過去24時間の投稿を読み、以下のテーマファイルを更新します。
 
-| ファイル | 内容 |
-|----------|------|
-| `themes/ai-philosophy.md` | AI・哲学系の気づき |
-| `themes/business-design.md` | ビジネス・デザイン系の気づき |
-| `themes/personal-os.md` | personal-os自体に関する気づき |
-| `themes/tools-tech.md` | ツール・技術系の気づき |
-| `themes/misc.md` | その他 |
+| ファイル                        | 内容                   |
+| --------------------------- | -------------------- |
+| `themes/ai-philosophy.md`   | AI・哲学系の気づき           |
+| `themes/business-design.md` | ビジネス・デザイン系の気づき       |
+| `themes/personal-os.md`     | personal-os自体に関する気づき |
+| `themes/tools-tech.md`      | ツール・技術系の気づき          |
+| `themes/misc.md`            | その他                  |
 
 **更新ルール:**
 - メッセージが該当するテーマファイルの「積層中の歯車」を更新

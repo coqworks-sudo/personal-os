@@ -333,3 +333,6 @@ BrokenPipeError: [Errno 32] Broken pipe
 2026-04-27 08:00:19,039 INFO routine.sh 開始: date=2026-04-26, file=/tmp/personal-os-messages.txt
 2026-04-27 08:00:58,818 INFO routine.sh 終了: returncode=0
 2026-04-28 08:00:19,602 INFO routine.sh 開始: date=2026-04-27, file=/tmp/personal-os-messages.txt
+2026-04-28 08:01:03,690 INFO routine.sh 終了: returncode=0
+2026-04-28 22:10:15,089 INFO routine-server 起動: http://localhost:5680
+2026-04-29 08:00:47,295 INFO routine.sh 開始: date=2026-04-28, file=/tmp/personal-os-messages.txt
