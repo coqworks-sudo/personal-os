@@ -352,3 +352,5 @@ BrokenPipeError: [Errno 32] Broken pipe
 2026-05-05 08:00:49,183 INFO routine.sh 開始: date=2026-05-04, file=/tmp/personal-os-messages.txt
 2026-05-05 08:01:28,330 INFO routine.sh 終了: returncode=0
 2026-05-06 08:00:49,143 INFO routine.sh 開始: date=2026-05-05, file=/tmp/personal-os-messages.txt
+2026-05-06 08:01:30,690 INFO routine.sh 終了: returncode=0
+2026-05-07 08:00:49,443 INFO routine.sh 開始: date=2026-05-06, file=/tmp/personal-os-messages.txt
